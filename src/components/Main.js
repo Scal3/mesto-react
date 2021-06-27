@@ -22,7 +22,7 @@ function Main(props) {
       .catch((e) => {
         console.log(`Ошибка при получении данных: ${e}`)
       })
-  })
+  }, [])
 
   return (
     <main className="main">
@@ -42,9 +42,9 @@ function Main(props) {
       </section>
       {/* секция с карточками */}
       <section className="cards">
-        {cards.map((card, i) => {
+        {cards.map((card) => {
           return (
-            <Card key={i} card={card} onCardClick={props.cardImageClick}/>
+            <Card key={card._id} card={card} onCardClick={props.cardImageClick}/>
             );
           })}
         </section >

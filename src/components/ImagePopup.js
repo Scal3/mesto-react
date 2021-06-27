@@ -6,7 +6,7 @@ function ImagePopup(props) {
   let open = null
 
   //Проверка стэйта
-  if (props.card) {
+  if (props.card.link) {
     open = 'popup_opened'
   }
 
@@ -15,7 +15,7 @@ function ImagePopup(props) {
       <div className="image-popup__container">
         <button className="popup__close-button popup__close-button_type_image" type="button" aria-label="Закрыть" onClick={props.onClose}/>
         <img src={`${props.card.link}`} alt="this-pic" className="image-popup__image" />
-        <h2 className="image-popup__title">Картинка</h2>
+        <h2 className="image-popup__title">{props.card.name}</h2>
       </div>
     </div>
   )
