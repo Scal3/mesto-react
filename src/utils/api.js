@@ -60,8 +60,8 @@ class Api {
     .then(this._checkResponse)
   }
 
-  deleteCard(id) {  //УДАЛИТЬ КАРТОЧКУ
-    return fetch(`${this._url}/cards/${id}`, {
+  deleteCard(card) {  //УДАЛИТЬ КАРТОЧКУ
+    return fetch(`${this._url}/cards/${card._id}`, {
       method: 'DELETE',
       headers: {
           authorization: this._token,
@@ -90,7 +90,7 @@ class Api {
     .then(this._checkResponse)
   }
 
-  edidProfileAvatar(avatar) { //ИЗМЕНИТЬ ФОТО ПРОФИЛЯ
+  edidProfileAvatar({avatar}) { //ИЗМЕНИТЬ ФОТО ПРОФИЛЯ
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
