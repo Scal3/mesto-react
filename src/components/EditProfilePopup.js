@@ -16,7 +16,7 @@ function EditProfilePopup(props) {
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, props.isOpen]);
 
 
   const handleName = e => setName(e.target.value)
@@ -38,11 +38,11 @@ function EditProfilePopup(props) {
   return (
     <PopupWithForm name="profile" title="Редактировать профиль" isOpen={props.isOpen} onClose={props.onClose} buttonText="Сохранить" onSubmit={handleSubmit}>
       <div className="popup__section">
-        <input type="text" required className="popup__input popup__input_type_name" name="name" placeholder="Введите ваше имя" minLength="2" maxLength="40" onChange={handleName} value={name}/>
+        <input type="text" required className="popup__input popup__input_type_name" name="name" placeholder="Введите ваше имя" minLength="2" maxLength="40" onChange={handleName} value={name || ''}/>
         <span className="popup__input-error popup__input-error_position_up" />
       </div>
       <div className="popup__section">
-        <input type="text" required className="popup__input popup__input_type_job" name="about" placeholder="Введите вашу профессию" minLength="2" maxLength="200" onChange={handleDescription} value={description}/>
+        <input type="text" required className="popup__input popup__input_type_job" name="about" placeholder="Введите вашу профессию" minLength="2" maxLength="200" onChange={handleDescription} value={description || ''}/>
         <span className="popup__input-error popup__input-error_position_dawn" />
       </div>
     </PopupWithForm>

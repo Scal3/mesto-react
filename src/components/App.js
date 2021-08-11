@@ -28,6 +28,9 @@ function App() {
         setCurrentUser(userData)
         setCards(cards)
       })
+      .catch((e) => {
+        console.log(`Ошибка загрузки данных: ${e}`)
+      })
   }, [])
 
 
